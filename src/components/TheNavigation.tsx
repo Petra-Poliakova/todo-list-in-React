@@ -1,14 +1,13 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
 //styles
 import "../styles/TheNavigation.scss";
 
 function TheNavigation() {
   return (
-    <nav className="navigation">
-      <NavLink to="/">Todo list</NavLink>
-    </nav>
+    <div className="navigation">
+      <h1>Todo list</h1>
+    </div>
   );
 }
 export default TheNavigation;
