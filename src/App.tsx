@@ -22,11 +22,11 @@ export const App = () => {
 
   //useEffect
   useEffect(() => {
-    let items = JSON.parse(localStorage.getItem("todos") || "{}");
-    if (!items) {
+    let itemsString = localStorage.getItem("todos");
+    if (!itemsString) {
       return;
     } else {
-      items = JSON.parse(localStorage.getItem("todos") || "{}");
+      const items = JSON.parse("todos");
       setTodoList(items);
     }
   }, []);
