@@ -8,9 +8,6 @@ import "./styles/App.scss";
 //components
 import TheNavigation from "./components/TheNavigation";
 
-//pages
-//import { Home } from "./pages/Home";
-
 export const App = () => {
   const [todoList, setTodoList] = useState<TodoType[]>([]);
   const [isEditing, setIsEditing] = useState(false);
@@ -26,7 +23,7 @@ export const App = () => {
     if (!itemsString) {
       return;
     } else {
-      const items = JSON.parse("todos");
+      const items = JSON.parse(itemsString);
       setTodoList(items);
     }
   }, []);
@@ -148,4 +145,3 @@ export const App = () => {
     </div>
   );
 };
-//"homepage": "https://petrapoliakova.sk/kurzy/todoListWeb/",
