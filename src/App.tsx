@@ -41,6 +41,7 @@ export const App = () => {
       complete: false,
     };
     // add the todo to the list
+    setIsEditing(false);
     setTodoList([...todoList, newTodo]);
     localStorage.setItem("todos", JSON.stringify([...todoList, newTodo]));
   };
@@ -114,6 +115,7 @@ export const App = () => {
       : todoList.filter((todo) => todo.complete);
 
   const handleFilterClick = () => {
+    setIsEditing(false);
     setIsFilterClicked(true);
     setTimeout(() => {
       setIsFilterClicked(false);
