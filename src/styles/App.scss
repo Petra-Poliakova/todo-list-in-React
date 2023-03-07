@@ -72,6 +72,19 @@
     }
   }
 }
+.todo-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .remove-todo-list {
+    margin-right: 30px;
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    color: $white-color;
+    cursor: pointer;
+  }
+}
 
 @media only screen and (max-width: 769px) {
   .widget-wrapper {

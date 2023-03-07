@@ -3,3 +3,9 @@ export type TodoType = {
   text: string;
   complete?: boolean;
 };
+
+export enum filter {
+  all = "all",
+  active = "active",
+  completed = "completed",
+}
