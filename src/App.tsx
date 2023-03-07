@@ -166,20 +166,20 @@ export const App = () => {
                   onTodoEdit={onTodoEdit}
                 />
               </div>
+              {isEditing && (
+                <TodoEdit
+                  editingData={editingData.text}
+                  setEditingData={(e) => {
+                    setEditingData({
+                      ...editingData,
+                      text: e.target.value,
+                    });
+                  }}
+                  okEdit={okEdit}
+                  cancelEdit={cancelEdit}
+                />
+              )}
               <div className="todo-footer">
-                {isEditing && (
-                  <TodoEdit
-                    editingData={editingData.text}
-                    setEditingData={(e) => {
-                      setEditingData({
-                        ...editingData,
-                        text: e.target.value,
-                      });
-                    }}
-                    okEdit={okEdit}
-                    cancelEdit={cancelEdit}
-                  />
-                )}
                 {filteredTodos === filter.all
                   ? renderTodoCount(filter.all, allCount)
                   : filteredTodos === filter.active
@@ -197,3 +197,4 @@ export const App = () => {
     </div>
   );
 };
+//"homepage": "https://petrapoliakova.sk/kurzy/todoListWeb/",
