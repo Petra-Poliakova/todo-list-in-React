@@ -13,6 +13,7 @@ A simple Todo list created in React with the ability to add individual items, ed
   <li>Remove all todos</li>
   <li>Save on localStorage</li>
   <li>Filter todo by status (All, Active, Completed)</li>
+  <li>Responsive</li>
 </ul>
 
 # Getting Started with Create React App
