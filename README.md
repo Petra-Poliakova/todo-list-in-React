@@ -6,12 +6,16 @@ A simple Todo list created in React with the ability to add individual items, ed
 ![react-todo-list-git](https://user-images.githubusercontent.com/73229851/223665706-729ac8a6-7567-4e4d-ab06-d4a07ded776c.png)
 
 ## Features
-Add todo
-Edit todo
-Delete todo
-Remove all todos
-Save on localStorage
-Filter todo by status (All, Active, Completed)
+<ul>
+  <li>Add todo</li>
+  <li>Edit todo</li>
+  <li>Delete todo</li>
+  <li>Delete todo</li>
+  <li>Delete todo</li>
+  <li>Remove all todos</li>
+  <li>Save on localStorage</li>
+  <li>Filter todo by status (All, Active, Completed)</li>
+</ul>
 
 # Getting Started with Create React App
 
