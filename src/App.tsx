@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NewTodo } from "./components/Todo/NewTodo";
 import { TodosList } from "./components/Todo/TodosList";
 import { TodoFilter } from "./components/Todo/TodoFilter";
 import { TodoEdit } from "./components/Todo/TodoEdit";
 import { TodoCount } from "./components/Todo/TodoCount";
 import { TodoType, filter } from "./models/todo";
+
+import { useLocalStorage } from "./hooks/useLocalStorage";
 //styles
 import "./styles/App.scss";
 import "./styles/Home/TodoFilter.scss";
@@ -13,26 +15,15 @@ import "./styles/Home/TodoFilter.scss";
 import TheNavigation from "./components/TheNavigation";
 
 export const App = () => {
-  const [todoList, setTodoList] = useState<TodoType[]>([]);
+  const [todoList, setTodoList] = useLocalStorage<TodoType[]>("todos", []);
   const [isEditing, setIsEditing] = useState(false);
   var [editingData, setEditingData] = useState<{
     id: string;
     text: string;
     complete?: boolean;
   }>({ id: "", text: "", complete: false });
-  const [filteredTodos, setFilteredTodos] = useState<string>(filter.all);
+  const [filteredTodos, setFilteredTodos] = useState<filter>(filter.all);
   const [isFilterClicked, setIsFilterClicked] = useState(false);
-
-  //Load todo
-  useEffect(() => {
-    let itemsString = localStorage.getItem("todos");
-    if (!itemsString) {
-      return;
-    } else {
-      const items = JSON.parse(itemsString);
-      setTodoList(items);
-    }
-  }, []);
 
   const onAddTodoHandler = (todoValue: string) => {
     const newTodo = {
@@ -42,8 +33,7 @@ export const App = () => {
     };
     // add the todo to the list
     setIsEditing(false);
-    setTodoList([...todoList, newTodo]);
-    localStorage.setItem("todos", JSON.stringify([...todoList, newTodo]));
+    setTodoList((prevTodoList) => [...prevTodoList, newTodo]);
   };
 
   const onSelected = (id: string) => {
@@ -54,13 +44,11 @@ export const App = () => {
       return todo;
     });
     setTodoList(updatedTodos);
-    localStorage.setItem("todos", JSON.stringify(updatedTodos));
   };
 
   const onTodoRemove = (todoId: string) => {
     let filtered = todoList.filter((todo) => todo.id !== todoId);
     setTodoList(filtered);
-    localStorage.setItem("todos", JSON.stringify(filtered));
   };
 
   const onTodoEdit = (id: string, text: string, complete?: boolean) => {
@@ -95,7 +83,6 @@ export const App = () => {
       complete: editingData.complete,
     });
     setTodoList(changeTodo);
-    localStorage.setItem("todos", JSON.stringify(changeTodo));
   };
 
   const cancelEdit = () => {
@@ -103,7 +90,6 @@ export const App = () => {
   };
 
   const todoListRemove = () => {
-    localStorage.removeItem("todos");
     setTodoList([]);
   };
 
