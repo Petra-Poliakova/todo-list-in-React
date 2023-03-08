@@ -1,3 +1,9 @@
+# Todo-list-app
+
+![react-todo-list-git](https://user-images.githubusercontent.com/73229851/223665706-729ac8a6-7567-4e4d-ab06-d4a07ded776c.png)
+
+A simple Todo list created in React with the ability to add individual items, edit, delete, and using a checkbox, mark tasks as completed. Data is saved in local storage.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
